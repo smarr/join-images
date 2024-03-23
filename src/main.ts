@@ -2,8 +2,22 @@ import alignImage from './utils/alignImage';
 import calcMargin from './utils/calcMargin';
 import sharp from 'sharp';
 import fs from 'fs';
-import isObject from 'is-plain-obj';
 import { Options } from './typings';
+
+function isObject(value) {
+  if (typeof value !== 'object' || value === null) {
+    return false;
+  }
+
+  const prototype = Object.getPrototypeOf(value);
+  return (
+    (prototype === null ||
+      prototype === Object.prototype ||
+      Object.getPrototypeOf(prototype) === null) &&
+    !(Symbol.toStringTag in value) &&
+    !(Symbol.iterator in value)
+  );
+}
 
 interface ImageData {
   buffer: Buffer;
