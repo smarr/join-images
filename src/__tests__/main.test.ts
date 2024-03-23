@@ -14,13 +14,13 @@ describe('sharp', () => {
   it('should throw if input is not array', async () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    await expect(joinImage({})).rejects.toThrowError(
+    await expect(joinImage({})).rejects.toThrow(
       '`images` must be an array that contains images',
     );
   });
 
   it('should throw if input is has not value', async () => {
-    await expect(joinImage([])).rejects.toThrowError(
+    await expect(joinImage([])).rejects.toThrow(
       'At least `images` must contain more than one image',
     );
   });
